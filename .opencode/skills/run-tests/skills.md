@@ -1,29 +1,55 @@
 ---
 name: run-tests
-description: Execute the project's automated tests and report results
+description: Execute automated tests and automatically configure the correct test framework if necessary.
 ---
 
 # Run Tests
 
-Execute the project's automated test suite.
+Run the automated test suite for the project.
 
 ---
 
-## Step 1 — Detect Test Framework
+# Step 1 — Detect Project Stack
 
-Inspect the stack configuration and package files to determine the test runner.
+Inspect:
 
-Possible frameworks:
+docs/reference/stack.md  
+package.json  
+project files
 
-Jest  
-Vitest  
-Pytest  
-Mocha  
-Playwright  
+Determine:
+
+language  
+framework
 
 ---
 
-## Step 2 — Execute Tests
+# Step 2 — Detect Test Framework
+
+Select correct framework.
+
+Node → Vitest  
+Python → Pytest  
+React Native → Jest  
+Flutter → Flutter test
+
+---
+
+# Step 3 — Setup Framework (if missing)
+
+Check if configuration exists.
+
+If missing, generate:
+
+test configuration file  
+tests/setup file  
+.env.test  
+
+Ensure package scripts exist.
+
+---
+
+# Step 4 — Execute Test Suite
 
 Run the appropriate command.
 
@@ -31,34 +57,20 @@ Examples:
 
 npm test  
 pytest  
-npx playwright test  
+go test ./...
 
 ---
 
-## Step 3 — Capture Results
+# Step 5 — Capture Results
 
 Record:
 
-total tests  
-passed tests  
-failed tests  
+number of tests  
+pass/fail results  
+error logs
 
 ---
 
-## Step 4 — Report Failures
+# Step 6 — Return Result
 
-If failures occur:
-
-- identify failing files
-- show error messages
-- identify failing modules
-
----
-
-## Step 5 — Provide Summary
-
-Example output:
-
-Tests executed: 42  
-Passed: 39  
-Failed: 3
+Provide test summary.
