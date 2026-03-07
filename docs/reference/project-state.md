@@ -1,6 +1,7 @@
 # PROJECT STATE
 
-## Current Phase
+## Lifecycle Phases
+
 - Brainstorm
 - Classified
 - Framework Generated
@@ -10,25 +11,41 @@
 - Implementation
 - Validation
 
+---
+
+## Current Phase
+
 Current Phase:
-Brainstorm
+<<CURRENT_PHASE>>
 
 ---
 
 ## Locked Artifacts
 
 PRD Version:
+<<PRD_VERSION>>
+
 Architecture Version:
+<<ARCH_VERSION>>
+
 Plan Version:
+<<PLAN_VERSION>>
+
 Framework Version:
+<<FRAMEWORK_VERSION>>
 
 ---
 
 ## Governance Status
 
-Architecture Validated: No
-Drift Check Passed: No
+Architecture Validated:
+<<ARCH_VALIDATED>>
+
+Drift Check Passed:
+<<DRIFT_CHECK>>
 
 ---
 
 ## Last Updated
+
+<<LAST_UPDATED>>
