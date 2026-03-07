@@ -34,3 +34,18 @@ Validate that:
 Output only the confirmation message:
 
 "Database schema and migrations successfully generated."
+
+---
+
+# Update Project State
+
+Update the following file:
+
+docs/reference/project-state.md
+
+Modify:
+
+Phase: [CURRENT_COMMAND_PHASE]
+Last Updated: [CURRENT_TIMESTAMP]
+
+Save changes.
