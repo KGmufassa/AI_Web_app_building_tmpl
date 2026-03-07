@@ -1,46 +1,102 @@
 ---
 name: write-tests
-description: Generate tests covering backend services, APIs, and UI interactions.
+description: Generate automated tests for backend services, APIs, and application workflows.
 ---
 
 # Write Tests
 
----
-
-## Step 1 — Unit Tests
-
-Test service layer functions.
-
-Example:
-
-tests/unit/userService.test.ts
+Generate automated tests that verify system functionality.
 
 ---
 
-## Step 2 — API Tests
+# Inputs
 
-Test endpoints.
+Read the following reference files:
 
-Example:
+- docs/reference/prd.md
+- docs/reference/architecture.md
+- docs/reference/plan.md
 
-tests/api/users.test.ts
-
----
-
-## Step 3 — Integration Tests
-
-Test complete workflows.
-
-Example:
-
-create project → add task → retrieve tasks
+Use these to determine required test coverage.
 
 ---
 
-## Step 4 — Validation
+# Test Categories
 
-Ensure:
+## 1. Unit Tests
 
-- endpoints return expected responses
-- database interactions succeed
-- frontend calls correct APIs
+Test individual services and business logic.
+
+Examples:
+
+services/projectService.ts  
+services/userService.ts
+
+Output:
+
+tests/unit/projectService.test.ts
+
+---
+
+## 2. API Tests
+
+Verify backend endpoints.
+
+Examples:
+
+GET /projects  
+POST /projects
+
+Output:
+
+tests/api/projects.test.ts
+
+---
+
+## 3. Integration Tests
+
+Test full workflows across layers.
+
+Example workflow:
+
+create project  
+add task  
+retrieve tasks
+
+Output:
+
+tests/integration/projectWorkflow.test.ts
+
+---
+
+# Supporting Files
+
+Generate supporting utilities if needed:
+
+tests/mocks/  
+tests/utils/
+
+Examples:
+
+mockAuth.ts  
+createTestUser.ts
+
+---
+
+# Test Directory Structure
+
+Ensure the following structure exists:
+
+tests/
+
+tests/unit  
+tests/api  
+tests/integration  
+tests/mocks  
+tests/utils  
+
+---
+
+# Output
+
+Generated test files for the application.
