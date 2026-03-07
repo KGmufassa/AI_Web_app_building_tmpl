@@ -36,3 +36,18 @@ After completion verify:
 Output only a confirmation message:
 
 "Project scaffold successfully created."
+
+---
+
+# Update Project State
+
+Update the following file:
+
+docs/reference/project-state.md
+
+Modify:
+
+Phase: [CURRENT_COMMAND_PHASE]
+Last Updated: [CURRENT_TIMESTAMP]
+
+Save changes.
