@@ -42,3 +42,18 @@ docs/reference/architecture.md
 5. Output only this confirmation message:
 
 "Architecture document saved to docs/reference/architecture.md"
+
+---
+
+# Update Project State
+
+Update the following file:
+
+docs/reference/project-state.md
+
+Modify:
+
+Phase: [CURRENT_COMMAND_PHASE]
+Last Updated: [CURRENT_TIMESTAMP]
+
+Save changes.
