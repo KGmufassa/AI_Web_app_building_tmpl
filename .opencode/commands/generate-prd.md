@@ -41,3 +41,18 @@ docs/reference/prd.md
 
 **Do not output the full document in chat unless explicitly requested.
 
+---
+
+# Update Project State
+
+Update the following file:
+
+docs/reference/project-state.md
+
+Modify:
+
+Phase: [CURRENT_COMMAND_PHASE]
+Last Updated: [CURRENT_TIMESTAMP]
+
+Save changes.
+
