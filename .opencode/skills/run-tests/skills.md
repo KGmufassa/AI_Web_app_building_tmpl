@@ -1,76 +1,190 @@
 ---
 name: run-tests
-description: Execute automated tests and automatically configure the correct test framework if necessary.
+description: Execute the project’s automated test suite and prepare the test environment if required.
 ---
 
 # Run Tests
 
-Run the automated test suite for the project.
+Execute the automated test suite and generate a structured test report.
+
+This skill must:
+
+1. Detect the correct testing framework
+2. Ensure test configuration exists
+3. Run the tests
+4. Write results to the validation report directory
+
+---
+
+# Inputs
+
+Read the following project files if present:
+
+- docs/reference/stack.md
+- package.json
+- requirements.txt
+- go.mod
+- pubspec.yaml
+
+Detect project language and framework.
 
 ---
 
 # Step 1 — Detect Project Stack
 
-Inspect:
+Determine the project stack.
 
-docs/reference/stack.md  
-package.json  
-project files
+Possible stacks:
 
-Determine:
+Node / TypeScript  
+Python  
+Go  
+React Native  
+Flutter  
+Swift  
+Kotlin  
 
-language  
-framework
+Use indicators such as:
+
+package.json → Node ecosystem  
+requirements.txt → Python  
+go.mod → Go  
+pubspec.yaml → Flutter  
 
 ---
 
 # Step 2 — Detect Test Framework
 
-Select correct framework.
+Choose the correct framework based on the stack.
 
-Node → Vitest  
-Python → Pytest  
+Node:
+
+Vitest (preferred)  
+Jest  
+Playwright (E2E)
+
+Python:
+
+Pytest
+
+Go:
+
+Go test
+
+Mobile:
+
 React Native → Jest  
-Flutter → Flutter test
+Flutter → Flutter test  
+Swift → XCTest  
+Kotlin → JUnit
 
 ---
 
-# Step 3 — Setup Framework (if missing)
+# Step 3 — Ensure Test Configuration
 
-Check if configuration exists.
+If configuration files are missing, generate them automatically.
 
-If missing, generate:
+Examples:
 
-test configuration file  
-tests/setup file  
+Node:
+
+vitest.config.ts  
+tests/setup.ts  
 .env.test  
 
-Ensure package scripts exist.
+Python:
+
+pytest.ini  
+tests/conftest.py  
+.env.test  
+
+Mobile:
+
+appropriate test runner configuration
 
 ---
 
-# Step 4 — Execute Test Suite
+# Step 4 — Ensure Test Directory Exists
+
+Ensure the following structure exists:
+
+tests/
+
+tests/unit  
+tests/api  
+tests/integration  
+tests/mocks  
+tests/utils  
+
+Create directories if missing.
+
+---
+
+# Step 5 — Execute Test Suite
 
 Run the appropriate command.
 
 Examples:
 
-npm test  
-pytest  
+Node:
+
+npm test
+
+Python:
+
+pytest
+
+Go:
+
 go test ./...
+
+Flutter:
+
+flutter test
 
 ---
 
-# Step 5 — Capture Results
+# Step 6 — Capture Results
 
 Record:
 
-number of tests  
-pass/fail results  
-error logs
+- total tests executed
+- passed tests
+- failed tests
+- failing files
+- error messages
 
 ---
 
-# Step 6 — Return Result
+# Step 7 — Generate Test Report
 
-Provide test summary.
+Write results to:
+
+validation-reports/test-results.json
+
+Example structure:
+
+{
+  "status": "fail",
+  "total": 48,
+  "passed": 44,
+  "failed": 4,
+  "failures": [
+    {
+      "test": "projectService.test.ts",
+      "error": "Expected 200 but received 500"
+    }
+  ]
+}
+
+---
+
+# Step 8 — Output Status
+
+If all tests pass:
+
+All tests passed.
+
+If failures exist:
+
+Test failures detected.
