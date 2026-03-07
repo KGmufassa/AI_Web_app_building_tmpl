@@ -47,3 +47,18 @@ docs/reference/app-classification.md
 3. Overwrite existing file.
 4. Output confirmation only:
 "Application classification saved to docs/reference/app-classification.md"
+
+---
+
+# Update Project State
+
+Update the following file:
+
+docs/reference/project-state.md
+
+Modify:
+
+Phase: [CURRENT_COMMAND_PHASE]
+Last Updated: [CURRENT_TIMESTAMP]
+
+Save changes.
