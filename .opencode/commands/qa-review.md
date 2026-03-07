@@ -13,3 +13,18 @@ Evaluate:
 - environment configuration
 - dependency safety
 - missing validations
+
+---
+
+# Update Project State
+
+Update the following file:
+
+docs/reference/project-state.md
+
+Modify:
+
+Phase: [CURRENT_COMMAND_PHASE]
+Last Updated: [CURRENT_TIMESTAMP]
+
+Save changes.
