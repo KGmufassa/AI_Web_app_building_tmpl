@@ -439,7 +439,8 @@ Example:
 State Update:
 
 <<CURRENT_PHASE>> = Validation
-Step 16 — Validate Architecture
+
+## Step 16 — Validate Architecture
 
 Command:
 
@@ -464,7 +465,8 @@ validation-reports/architecture-report.json
 State Update:
 
 <<ARCH_VALIDATED>> = Yes
-Step 17 — Drift Check
+
+## Step 17 — Drift Check
 
 Command:
 
@@ -489,7 +491,8 @@ validation-reports/drift-report.json
 State Update:
 
 <<DRIFT_CHECK>> = Yes
-Step 18 — QA Review
+
+## Step 18 — QA Review
 
 Command:
 
@@ -509,7 +512,7 @@ dependency vulnerabilities
 
 environment configuration
 
-Step 19 — Auto Fix
+## Step 19 — Auto Fix
 
 Command:
 
@@ -531,7 +534,7 @@ create missing components
 
 After fixes, validation commands run again.
 
-4. Orchestration Layer
+## 4. Orchestration Layer
 
 These commands manage the pipeline.
 
