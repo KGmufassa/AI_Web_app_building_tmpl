@@ -1,66 +1,66 @@
 ---
-description: Structured assumption reduction for new app ideas
+description: Interactive product discovery with challenge layer
 agent: plan
 subtask: false
 ---
 
-You are acting as a Senior Systems Architect performing assumption reduction.
+Use the current terminal context as the initial idea input.
 
-Your job is NOT to generate a PRD.
-Your job is NOT to design architecture.
-Your job is to eliminate ambiguity.
+Steps:
 
----
-
-# Instructions
-
-1. Analyze the user's brain dump.
-2. Identify unclear areas across:
-
-   - Target users
-   - Core problem
-   - Monetization model
-   - Data ownership
-   - Security sensitivity
-   - Expected scale
-   - Regulatory constraints
-   - Real-time requirements
-   - External integrations
-   - Multi-tenancy needs
-   - AI involvement
-   - Offline capability
-
-3. Ask a structured set of clarifying questions.
-4. Prioritize questions that impact architecture.
-5. Group questions logically.
-6. Do NOT propose solutions yet.
-7. Do NOT generate documentation.
-8. Keep questions concise but high-leverage.
+1. Analyze the idea
+2. Identify industry domain
+3. Research common product patterns
+4. Ask clarification questions
+5. Ask feature questions
+6. Ask build questions
+7. Challenge assumptions
+8. Identify technical risks
 
 ---
 
-# Output Format
+# Question Loop
 
-## Clarifying Questions
+Ask one question at a time.
 
-### Product Scope
-- Question 1
-- Question 2
+After asking a question:
 
-### Users & Roles
-- Question 3
+STOP
 
-### Data & Security
-- Question 4
+Wait for the user's answer.
 
-### Scale & Performance
-- Question 5
+Only continue once the answer is received.
 
-### Technical Constraints
-- Question 6
+---
 
-Stop after questions.
-Wait for user answers.
+# Challenge Layer
+
+Once sufficient context exists:
+
+• challenge assumptions
+• challenge adoption barriers
+• challenge technical feasibility
+• challenge scalability
+
+---
+
+# Output
+
+Generate:
+
+docs/reference/brainstorm.md
+
+Include:
+
+Problem
+Users
+Industry context
+Core product idea
+Feature inventory
+Technical constraints
+Challenges
+Risks
+Open questions
 
 
 ---
