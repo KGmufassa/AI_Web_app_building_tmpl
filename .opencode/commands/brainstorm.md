@@ -1,66 +1,112 @@
 ---
-description: Interactive product discovery with challenge layer
+description: Interactive product discovery and idea refinement
 agent: plan
 subtask: false
 ---
 
-Use the current terminal context as the initial idea input.
+# Brainstorm Command
 
-Steps:
+Use the text provided with the command as the initial brain dump.
 
-1. Analyze the idea
-2. Identify industry domain
-3. Research common product patterns
-4. Ask clarification questions
-5. Ask feature questions
-6. Ask build questions
-7. Challenge assumptions
-8. Identify technical risks
+Brain dump input:
+$ARGUMENTS
+
+If no arguments are provided, use the current terminal context as the idea.
 
 ---
 
-# Question Loop
+# Step 1 — Analyze the Idea
 
-Ask one question at a time.
+Extract the following from the input:
+
+- problem being solved
+- target user
+- proposed solution
+- assumed features
+- technical hints
+- industry domain
+
+---
+
+# Step 2 — Research the Domain
+
+Identify common industry patterns for this type of application.
+
+Examples:
+
+- SaaS platforms
+- AI tools
+- marketplaces
+- mobile applications
+- internal enterprise tools
+
+Identify typical:
+
+- features
+- architecture patterns
+- integrations
+- risks
+
+---
+
+# Step 3 — Interactive Question Loop
+
+Ask **one question at a time**.
 
 After asking a question:
 
-STOP
+STOP.
 
-Wait for the user's answer.
+Wait for the user's response before continuing.
 
-Only continue once the answer is received.
+Questions should cover:
+
+• product definition  
+• user definition  
+• feature set  
+• platform decisions  
+• integrations  
+• AI usage  
+• security considerations
+
+Continue asking questions until sufficient information is collected.
 
 ---
 
-# Challenge Layer
+# Step 4 — Challenge Layer
 
-Once sufficient context exists:
+Once enough context exists, challenge the idea by questioning:
 
-• challenge assumptions
-• challenge adoption barriers
-• challenge technical feasibility
-• challenge scalability
+- assumptions
+- adoption barriers
+- technical feasibility
+- scalability risks
+- competitive alternatives
+
+Ask challenge questions one at a time.
 
 ---
 
-# Output
+# Step 5 — Generate Brainstorm Document
 
-Generate:
+When questioning is complete, generate:
 
 docs/reference/brainstorm.md
 
 Include:
 
-Problem
-Users
-Industry context
-Core product idea
-Feature inventory
-Technical constraints
-Challenges
-Risks
-Open questions
+Problem  
+Target Users  
+Industry Context  
+Product Concept  
+Core Features  
+Secondary Features  
+Platform  
+Data Sources  
+AI Requirements  
+Integrations  
+Risks  
+Open Questions
 
 
 ---
