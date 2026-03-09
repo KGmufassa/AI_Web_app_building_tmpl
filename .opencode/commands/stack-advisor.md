@@ -126,16 +126,3 @@ docs/reference/stack-best-practices.md
 "Stack best practices saved to docs/reference/stack-best-practices.md"
 
 ---
-
-# Update Project State
-
-Update the following file:
-
-docs/reference/project-state.md
-
-Modify:
-
-Phase: [CURRENT_COMMAND_PHASE]
-Last Updated: [CURRENT_TIMESTAMP]
-
-Save changes.
