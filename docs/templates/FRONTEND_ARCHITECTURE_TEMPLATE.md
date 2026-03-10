@@ -1,310 +1,161 @@
-# Frontend Architecture
+# FRONTEND ARCHITECTURE
 
-This document defines the UI architecture for the application.  
-It is generated from the design system and is used by the `/build-frontend` stage.
+This document is generated from the design specification command.
 
-Design source:
-
-- Figma export
-- Google Stitch export
-- design/ directory artifacts
+It defines the frontend system architecture derived from design artifacts and project specifications.
 
 ---
 
-# 1. Frontend Framework
+## Framework
 
-Framework: Next.js
+Populate from:
 
-Language: TypeScript
+docs/reference/stack.md
 
-Styling System:
+Must include:
 
-- Tailwind CSS
-- Design tokens from `design/tokens.json`
-
-State Management:
-
-- Zustand
-
-Form Handling:
-
-- React Hook Form
-- Zod validation
+Frontend framework  
+Routing system  
+Styling system  
+State management approach
 
 ---
 
-# 2. Application Layout
+## Design System
 
-The application uses two main layout systems.
+Extract from design sources.
 
-## Auth Layout
+Include:
 
-Used for authentication pages.
-
-Structure:
-
-AuthLayout
-└── Content
-
-Pages:
-
-- /login
-- /signup
+Styling framework  
+Theme strategy  
+Typography  
+Color tokens  
+Spacing system  
 
 ---
 
-## Main Application Layout
+## Page Map
 
-Structure:
+Populate all discovered pages.
 
-MainLayout
-├── Navbar
-├── Sidebar
-└── Content
+Each page must include:
 
-Pages:
-
-- /dashboard
-- /projects
-- /tasks
-- /settings
+Page Name  
+Route  
+Layout  
 
 ---
 
-# 3. Page Map
+## Layout Architecture
 
-Defines the route structure.
+Define shared layout containers.
 
+Each layout must include:
 
-/login
-/signup
-/dashboard
-/projects
-/projects/[id]
-/tasks
-/settings
-
-
-Each page must be generated during `/build-frontend`.
+Layout name  
+Pages using layout  
+Contained components  
 
 ---
 
-# 4. Component Architecture
+## Component Architecture
 
-Components follow a modular structure.
+List all components discovered from design sources.
 
+Categorize:
 
-components/
-├── ui
-├── navigation
-├── project
-├── task
-└── forms
-
-
-### Navigation Components
-
-Navbar  
-Sidebar  
-Breadcrumb
-
-### Project Components
-
-ProjectCard  
-ProjectList  
-ProjectForm
-
-### Task Components
-
-TaskCard  
-TaskTable  
-TaskForm
-
-### Form Components
-
-Input  
-Select  
-Button  
-Modal
+Shared components  
+Layout components  
+Page components  
 
 ---
 
-# 5. Hooks
+## Component Graph
 
-Hooks manage data fetching and state.
+Hierarchical structure of UI components.
 
+Must represent parent-child relationships between:
 
-hooks/
-├── useAuth
-├── useProjects
-├── useTasks
-
-
-Responsibilities:
-
-- call API endpoints
-- manage loading state
-- manage error state
+Pages  
+Layouts  
+Components  
 
 ---
 
-# 6. API Client Layer
+## Page Wiring Graph
 
-Location:
+Define page connections.
 
+Each page must include:
 
-lib/apiClient.ts
-
-
-Responsibilities:
-
-- API request wrapper
-- attach auth headers
-- error handling
-- retry logic
+Route  
+Layout  
+Hooks  
+API endpoints  
+Components  
 
 ---
 
-# 7. State Management
+## UI Dependency Graph
 
-Global state store:
+Define deterministic generation order.
 
+Structure must contain:
 
-stores/
-
-
-Example stores:
-
-UserStore  
-ProjectStore  
-TaskStore
-
-Responsibilities:
-
-- cache API responses
-- manage UI state
-- store authentication status
+Layouts  
+Shared components  
+Nested components  
+Hooks  
+Pages  
 
 ---
 
-# 8. Design Tokens
+## State Management Strategy
 
-Imported from:
+Define UI state boundaries.
 
+Include:
 
-design/tokens.json
-
-
-Includes:
-
-- color palette
-- typography
-- spacing
-- breakpoints
-
-Example:
-
-Primary Color  
-Secondary Color  
-Base Font  
-Spacing Scale
+Local state  
+Shared state  
+Server state hooks  
 
 ---
 
-# 9. Asset System
+## API Integration Layer
 
-Location:
+Define service layer connecting frontend hooks to backend endpoints.
 
+Include:
 
-design/assets/
-
-
-Includes:
-
-icons  
-images  
-illustrations
+Service modules  
+Hook-to-endpoint mapping  
 
 ---
 
-# 10. UI Data Flow
+## File Structure
 
-The UI data flow follows this structure.
+Define frontend directory layout.
 
+Must include:
 
-Page
-↓
-Hooks
-↓
-API Client
-↓
-Backend Endpoint
-↓
-Database
-
+components/  
+layouts/  
+pages/  
+hooks/  
+services/  
+styles/  
+lib/  
 
 ---
 
-# 11. Validation Rules
+## Validation Checklist
 
-All forms must include validation using:
+Confirm:
 
-Zod
-
-Example:
-
-LoginForm validation:
-
-email required  
-password minimum length
-
----
-
-# 12. Accessibility
-
-All components must support:
-
-- keyboard navigation
-- ARIA attributes
-- accessible labels
-
----
-
-# 13. Responsive Design
-
-Breakpoints defined by tokens:
-
-Mobile  
-Tablet  
-Desktop
-
-Components must support responsive layouts.
-
----
-
-# 14. File Structure
-
-The frontend generator must produce the following structure.
-
-
-app/
-├── pages
-├── components
-├── hooks
-├── layouts
-├── stores
-├── lib
-└── styles
-
-
----
-
-# 15. Validation Checklist
-
-The build process must confirm:
-
-- pages match page map
-- components match component architecture
-- hooks exist for API interactions
-- design tokens applied
-- layouts implemented
+Pages have routes  
+Layouts exist  
+Components mapped  
+Hooks mapped to endpoints  
+Dependency graph has no cycles
