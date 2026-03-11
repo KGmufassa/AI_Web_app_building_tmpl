@@ -1,92 +1,251 @@
 ---
-description: Interactive product discovery with tech stack exploration
+description: Convert a brain dump into a structured PRD draft through guided questioning
 agent: build
-subtask: false
 ---
 
-Use the command arguments as the initial brain dump.
+# Brainstorm Command
 
-Idea input:
-$ARGUMENTS
+This command converts a raw brain dump into a structured **PRD draft** through analysis and guided questioning.
 
-If no arguments are provided, use the current context as the idea.
+The input can come from either:
 
----
-
-Step 1 — Analyze Idea
-
-Identify:
-
-• problem
-• target users
-• industry domain
-• initial features
-• possible platforms
+1. The current conversation context
+2. A file path passed as an argument
+3. Direct text passed as an argument
 
 ---
 
-Step 2 — Interactive Questions
+# Step 1 — Determine Input Source
 
-Ask one question at a time.
+If `$ARGUMENTS` is provided:
 
-Pause after each question and wait for the user response.
+Check if it matches a file path.
 
-Questions should refine:
+If the file exists:
+Read the file contents.
 
-• product definition
-• features
-• integrations
-• AI usage
-• platform targets
+If the argument is not a file:
+Treat the argument as raw idea text.
 
----
-
-Step 3 — Stack Exploration
-
-Based on gathered information, suggest several suitable tech stack options.
-
-Explain:
-
-• why the stack fits
-• potential trade-offs
-• scalability implications
-
-Ask the user which stack direction they prefer.
+If no argument is provided:
+Use the current conversation context as the input source.
 
 ---
 
-Step 4 — Challenge Layer
+# Step 2 — Parse Brain Dump
 
-Challenge:
+Analyze the input text and extract:
 
-• assumptions
-• adoption risks
-• technical feasibility
-• scaling challenges
+• application concept  
+• problem being solved  
+• target users  
+• mentioned features  
+• UI or theme ideas  
+• integrations  
+• platform hints  
+• data requirements  
+
+If insufficient information exists, request a short explanation of the idea.
 
 ---
 
-Step 5 — Generate Brainstorm Document
+# Step 3 — Create Initial PRD Draft Structure
 
-Create:
+Organize extracted ideas into structured sections.
 
-docs/reference/brainstorm.md
+# PRD Draft
 
-Include:
+## App Concept
 
-Problem
-Users
-Product Concept
-Feature Inventory
-Platform
-Data Sources
-Integrations
-AI Requirements
-Recommended Tech Stacks
-Risks
-Open Questions
+Brief description of the application idea.
 
+---
 
+## Problem Statement
+
+What problem the app solves.
+
+---
+
+## Target Users
+
+Identify potential user groups.
+
+Examples:
+
+Consumers  
+Businesses  
+Creators  
+Developers  
+
+---
+
+## Core Features
+
+Extract primary functionality.
+
+Examples:
+
+User accounts  
+Dashboards  
+Search  
+Notifications  
+Payments  
+
+---
+
+## Supporting Features
+
+Enhancements to the main product.
+
+Examples:
+
+Analytics  
+User profiles  
+Settings  
+Admin tools  
+
+---
+
+## Platform
+
+Determine likely platform.
+
+Examples:
+
+Web application  
+Mobile application  
+Hybrid platform  
+
+---
+
+## UI / Theme Ideas
+
+Extract UI style hints.
+
+Examples:
+
+Minimal UI  
+Dashboard layout  
+Social-style feed  
+Dark mode  
+
+---
+
+## Integrations
+
+List possible integrations.
+
+Examples:
+
+Stripe  
+OAuth providers  
+Email services  
+Third-party APIs  
+
+---
+
+## Data Model Hints
+
+Identify types of data that must exist.
+
+Examples:
+
+Users  
+Projects  
+Media  
+Transactions  
+
+---
+
+# Step 4 — Ask Clarifying Questions
+
+Ask structured questions **one at a time**.
+
+Pause after each question and wait for the user to respond.
+
+Questions should focus on:
+
+### Problem
+
+What specific problem does the application solve?
+
+### Users
+
+Who is the primary user of this product?
+
+### Core Feature
+
+What is the most important feature?
+
+### Platform
+
+Will this be:
+
+Web  
+Mobile  
+Both
+
+### Authentication
+
+Will users need accounts?
+
+### Data
+
+What important data must be stored?
+
+### Monetization
+
+Will the app generate revenue?
+
+---
+
+# Step 5 — Challenge Assumptions
+
+Ask deeper questions to expose risks.
+
+Examples:
+
+What feature will be hardest to implement?
+
+What would make users switch from competitors?
+
+What part of the system might become a scaling bottleneck?
+
+What data privacy risks exist?
+
+---
+
+# Step 6 — Refine the PRD Draft
+
+Update the PRD draft using the user's answers.
+
+Ensure the document now contains:
+
+• a clear application concept  
+• defined users  
+• a concrete feature list  
+• platform definition  
+
+---
+
+# Step 7 — Save Brainstorm Artifact
+
+Write the structured document to:
+
+docs/reference/prd-draft.md
+
+Create directory if missing.
+
+Overwrite existing file if it exists.
+
+---
+
+# Completion Output
+
+Return confirmation only:
+
+PRD draft generated from brainstorm session.
 ---
 
 # Update Project State
