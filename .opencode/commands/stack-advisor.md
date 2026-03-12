@@ -1,6 +1,6 @@
 ---
 description: Confirm frontend stack and derive backend architecture aligned with the frontend system
-agent: plan
+agent: build
 subtask: true
 ---
 
