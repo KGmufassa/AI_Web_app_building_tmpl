@@ -7,8 +7,6 @@ subtask: true
 Reference:
 
 @docs/reference/frontend-architecture.md
-@docs/reference/brainstorm-prd-draft.md
-@docs/reference/app-classification.md
 
 ---
 
