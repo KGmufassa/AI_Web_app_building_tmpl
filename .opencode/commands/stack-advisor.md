@@ -1,32 +1,58 @@
 ---
-description: Confirm frontend stack and derive backend architecture aligned with the frontend system
+description: Confirm frontend stack and derive backend architecture aligned with the PRD draft and frontend architecture
 agent: build
 subtask: true
 ---
 
 Reference:
 
-@docs/reference/brainstorm-prd-draft.md
+@docs/reference/prd-draft.md
 @docs/reference/frontend-architecture.md
 
 ---
 
 # Objective
 
-Determine and finalize the full **application technology stack**.
+Determine the **complete full-stack architecture** of the application.
 
-The command must:
+This command must:
 
-1. Confirm the frontend stack derived from the frontend architecture.
-2. Ask clarifying questions to determine the backend stack.
-3. Validate compatibility between frontend and backend systems.
-4. Produce a backend architecture aligned with the frontend system.
+1. Analyze the **PRD draft**
+2. Analyze the **frontend architecture**
+3. Infer backend requirements
+4. Ask **targeted architecture questions**
+5. Finalize the **technology stack**
+6. Generate the **backend architecture specification**
 
-The result should be a **cohesive full-stack architecture**.
+The goal is to ensure the **backend architecture directly supports the product requirements and UI structure**.
 
 ---
 
-# Step 1 — Read Frontend Architecture
+# Step 1 — Load PRD Draft
+
+Load:
+
+docs/reference/prd-draft.md
+
+Extract:
+
+Product features  
+User workflows  
+Data entities  
+Authentication needs  
+Integration requirements  
+
+Identify backend implications such as:
+
+Persistent data storage  
+User account systems  
+File uploads  
+Real-time features  
+External integrations  
+
+---
+
+# Step 2 — Load Frontend Architecture
 
 Load:
 
@@ -35,56 +61,83 @@ docs/reference/frontend-architecture.md
 Extract:
 
 Frontend framework  
-Routing system  
+Routing structure  
+API interaction patterns  
 State management approach  
-UI architecture style  
-API consumption pattern  
 
-Examples:
+Identify:
 
-React + Tailwind  
-Next.js App Router  
-REST data fetching hooks  
+Frontend hooks  
+API endpoints required  
+Frontend data dependencies  
 
 ---
 
-# Step 2 — Confirm Frontend Stack
+# Step 3 — Extract design specs 
+
+Load:
+
+docs/reference/frontend-design-spec.md
+
+Extract:
+
+Pages  
+Components  
+Layouts  
+User interaction flows  
+
+Use this to identify backend needs such as:
+
+Data fetching requirements  
+Search/filter operations  
+User dashboards  
+Content creation features  
+
+---
+
+# Step 4 — Infer Backend Requirements
+
+Using the PRD and UI architecture, determine backend needs.
+
+Example detections:
+
+User authentication system  
+CRUD APIs for entities  
+File storage  
+Notification systems  
+Real-time communication  
+Background job processing  
+
+These inferred requirements should guide the backend stack selection.
+
+---
+
+# Step 5 — Confirm Frontend Stack
 
 Display detected frontend stack.
 
 Example:
 
-Frontend Framework  
-Next.js
+Frontend Framework: Next.js  
+Styling: TailwindCSS  
+Routing: App Router  
+State Management: React Hooks  
 
-Styling  
-TailwindCSS
-
-State Management  
-React Hooks
-
-Routing  
-Next.js App Router
-
-Ask user to confirm:
-
-Is the detected frontend stack correct?
-
-If not, request corrections.
+Ask the user to confirm or correct the frontend stack.
 
 ---
 
-# Step 3 — Backend Architecture Questionnaire
+# Step 6 — Backend Architecture Questionnaire
 
-Generate a backend clarification questionnaire.
+Using the PRD and frontend architecture, ask targeted questions about backend design.
 
-Ask questions **sequentially without pauses** so the user can answer them together.
+Ask all questions **in one output** so the user can respond in a single reply.
 
 ---
 
 ## Backend Runtime
 
-Which runtime environment should power the backend?
+Based on the product requirements, which runtime should power the backend?
 
 Examples:
 
@@ -97,7 +150,7 @@ Java
 
 ## Backend Framework
 
-Which backend framework should be used?
+Which framework should be used?
 
 Examples:
 
@@ -105,15 +158,14 @@ Express
 NestJS  
 FastAPI  
 Django  
-Spring Boot  
 
 ---
 
-## API Architecture
+## API Style
 
-Which API style should the backend follow?
+Based on the frontend data needs, which API architecture should be used?
 
-Examples:
+Options:
 
 REST  
 GraphQL  
@@ -123,14 +175,13 @@ tRPC
 
 ## Database
 
-Which database should be used?
+What database is best suited for the application's data model?
 
 Examples:
 
 PostgreSQL  
 MySQL  
 MongoDB  
-SQLite  
 
 ---
 
@@ -143,7 +194,6 @@ Examples:
 Prisma  
 Drizzle  
 SQLAlchemy  
-TypeORM  
 
 ---
 
@@ -153,16 +203,15 @@ How should authentication be implemented?
 
 Examples:
 
-JWT  
+JWT tokens  
 Session cookies  
 OAuth providers  
-Auth0 / Clerk  
 
 ---
 
 ## File Storage
 
-Will the application require file storage?
+Does the application require file uploads or media storage?
 
 Examples:
 
@@ -172,15 +221,25 @@ Local storage
 
 ---
 
-## Background Jobs
+## Real-Time Features
 
-Does the application require background job processing?
+Does the application require real-time updates?
+
+Examples:
+
+WebSockets  
+Server-Sent Events  
+
+---
+
+## Background Processing
+
+Does the application require background jobs?
 
 Examples:
 
 Queue workers  
 Task schedulers  
-Async workers  
 
 ---
 
@@ -192,7 +251,6 @@ Examples:
 
 AWS  
 Vercel serverless  
-Render  
 Fly.io  
 Docker containers  
 
@@ -200,7 +258,7 @@ Docker containers
 
 ## Testing Framework
 
-Which backend testing framework should be used?
+Which testing framework should be used?
 
 Examples:
 
@@ -210,127 +268,29 @@ Pytest
 
 ---
 
-# Step 4 — Validate Stack Compatibility
+# Step 7 — Validate Stack Compatibility
 
-Ensure the backend stack is compatible with the frontend.
+Ensure backend choices are compatible with the frontend architecture.
 
-Examples:
+Example validations:
 
-Next.js frontend → REST or GraphQL API expected  
-React Native → mobile-friendly API responses  
-Serverless deployment → stateless backend  
+Next.js frontend → REST or GraphQL APIs  
+Serverless frontend → stateless backend services  
 
-Flag incompatibilities and suggest corrections.
+Flag incompatibilities and suggest alternatives.
 
 ---
 
-# Step 5 — Generate Backend Architecture
+# Step 8 — Generate Backend Architecture
 
-Create a backend architecture aligned with the frontend system.
+Create a backend architecture aligned with the application requirements.
 
-The architecture must include:
+Include:
 
-Service layer  
 Controller layer  
+Service layer  
 Repository layer  
-Database models  
-API routing structure  
+Data models  
+API routing  
 
 Example structure:
-src/
-
-controllers/
-services/
-repositories/
-models/
-middleware/
-routes/
-config/
-
-
----
-
-# Step 6 — Define API Contracts
-
-Derive API endpoints required by the frontend.
-
-Examples:
-
-GET /api/projects  
-POST /api/projects  
-GET /api/users  
-
-Map these endpoints to frontend hooks discovered in the frontend architecture.
-
----
-
-# Step 7 — Produce Stack Architecture Document
-
-Output structured document:
-
-# FULL STACK ARCHITECTURE
-
-## Frontend Stack
-
-Framework  
-Styling  
-Routing  
-State Management  
-
----
-
-## Backend Stack
-
-Runtime  
-Framework  
-API Style  
-Database  
-ORM  
-Authentication  
-
----
-
-## Backend Architecture
-
-Controllers  
-Services  
-Repositories  
-Models  
-
----
-
-## API Contract
-
-Define endpoints required by the frontend.
-
----
-
-## Deployment Strategy
-
-Describe infrastructure.
-
----
-
-# Step 8 — Save Artifacts
-
-Save stack definition:
-
-docs/reference/stack.md
-
-Save backend architecture:
-
-docs/reference/backend-architecture.md
-
-Create directories if missing.
-
-Overwrite existing files.
-
----
-
-# Completion Output
-
-Return confirmation only:
-
-"Stack confirmed and backend architecture generated."
-
----
