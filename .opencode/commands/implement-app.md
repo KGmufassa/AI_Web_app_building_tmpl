@@ -2,7 +2,7 @@
 
 Implements the application based on the finalized architecture and implementation plan.
 
-This command executes the **implement-app skill**, which performs the following pipeline:
+This command executes the `implement-app skill`, which performs the following pipeline:
 
 1. Validate architecture
 2. Generate dependency graph
@@ -13,4 +13,4 @@ This command executes the **implement-app skill**, which performs the following 
 7. Build frontend core
 8. Generate application features
 
-Execute the **implement-app skill** to perform the implementation phase.
+Execute the `implement-app skill` to perform the implementation phase.
